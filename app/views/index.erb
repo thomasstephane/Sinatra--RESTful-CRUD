@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Welcome to Notes live</h1>
+
+  <ul>
+    <% if @notes %>
+
+  <% @notes.each do |note| %>
+  <li>
+    <p><%= note.note %></p>
+    <form name=<%= note.id %> class="update" action="/note/<%= note.id %>" method="put"><input name="text"><input type="submit" value="update"></form>
+    <a class="delete" href="/note/<%= note.id %>">delete</a>
+  </li>
+  <% end %>
+  <% end %>
+  </ul>
+  <form class="new" action="/note" method="post">
+    <textarea name="text"></textarea>
+    <input type="submit" value="post">
+  </form>
+
+</div>
